@@ -1,0 +1,21 @@
+version: "3.8"
+services:
+  detection2d:
+    build: ./detection2d
+    image: detection2d:latest
+    network_mode: 'host'
+#    env_file:
+#      - ./detection2d/envs/config.env
+    volumes:
+      - "./blender-gen/DATASET:/DATASET:rw"
+    environment:
+     - NVIDIA_VISIBLE_DEVICES=all
+     - NVIDIA_DRIVER_CAPABILITIES=compute
+     - FINETUNE
+     - MAX_EPOCHS
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - capabilities:
+              - gpu
