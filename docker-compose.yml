@@ -28,6 +28,7 @@ services:
 #     - ./detection2d/envs/config.env
     volumes:
       - "./blender-gen/DATASET:/DATASET:rw"
+      - "./detection2d:/app/models:rw"
       - "./detection2d_gradio:/app:rw"
     environment:
      - NVIDIA_VISIBLE_DEVICES=all

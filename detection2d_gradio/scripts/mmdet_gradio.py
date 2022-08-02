@@ -23,8 +23,8 @@ def process(input_img):
     return img
 
 # init model
-config_file = '/DATASET/mmdetection_work_dir/faster_rcnn_config.py'
-checkpoint_file = '/DATASET/mmdetection_work_dir/latest.pth'
+config_file = '/app/models/mmdetection_work_dir/faster_rcnn_config.py'
+checkpoint_file = '/app/models/mmdetection_work_dir/latest.pth'
 model = init_detector(config_file, checkpoint_file, device='cuda:0')
 
 # gradio

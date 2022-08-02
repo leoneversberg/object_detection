@@ -1,0 +1,6 @@
+*.pth
+*.log
+*.log.json
+**/examples/*
+**/mmdetection_work_dir/*
+**/mmdetection_work_dir_finetuned/*
