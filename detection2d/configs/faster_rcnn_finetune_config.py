@@ -98,7 +98,7 @@ data = dict(
 
 # We can use the pre-trained Mask RCNN model to obtain higher performance
 #load_from = 'checkpoints/faster_rcnn_r50_fpn_1x_coco_20200130-047c8118.pth'
-load_from = '/DATASET/mmdetection_work_dir/latest.pth'
+load_from = '/detection/mmdetection_work_dir/latest.pth'
 
 optimizer = dict(type='SGD', lr=0.00001, momentum=0.9, weight_decay=0.0003)
 #optimizer_config = dict(grad_clip=None)
@@ -123,4 +123,4 @@ checkpoint_config = dict(interval=100)
 #	])
 
 workflow = [('train', 1), ('val',1)]
-work_dir = 'DATASET/mmdetection_work_dir'
+work_dir = '/detection/mmdetection_work_dir_finetuned'

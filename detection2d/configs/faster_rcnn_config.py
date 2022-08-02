@@ -101,4 +101,4 @@ checkpoint_config = dict(interval=45)
 
 workflow = [('train', 1), ('val',1)]
 #workflow = [('train', 1)]
-work_dir = '/DATASET/mmdetection_work_dir'
+work_dir = '/detection/mmdetection_work_dir'

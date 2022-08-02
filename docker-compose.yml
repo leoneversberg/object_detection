@@ -8,11 +8,31 @@ services:
 #      - ./detection2d/envs/config.env
     volumes:
       - "./blender-gen/DATASET:/DATASET:rw"
+      - "./detection2d:/detection:rw"
     environment:
      - NVIDIA_VISIBLE_DEVICES=all
      - NVIDIA_DRIVER_CAPABILITIES=compute
      - FINETUNE
      - MAX_EPOCHS
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - capabilities:
+              - gpu
+  detection2d_gradio:
+    build: ./detection2d_gradio
+    image: detection2d_gradio:latest
+    network_mode: 'host'
+#   env_file:
+#     - ./detection2d/envs/config.env
+    volumes:
+      - "./blender-gen/DATASET:/DATASET:rw"
+      - "./detection2d_gradio:/app:rw"
+    environment:
+     - NVIDIA_VISIBLE_DEVICES=all
+     - NVIDIA_DRIVER_CAPABILITIES=compute
+     - PYTHONUNBUFFERED=1
     deploy:
       resources:
         reservations:
